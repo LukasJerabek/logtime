@@ -1,0 +1,85 @@
+[project]
+name = "logtime"
+version = "0.1.0"
+description = "Minimalistic time-tracking tool."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-redmine",
+    "pydantic",
+]
+authors = [ { name = "Lukas Jerabek" } ]
+license = "MIT"
+keywords = ["time-tracking", "redmine", "log", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.7.2,<0.8",
+    "mypy>=1.13.0,<2",
+    "xenon>=0.9.3,<0.10",
+    "pytest>=7.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [ "ALL" ] # select ALL linters
+# check the codes descr here: https://docs.astral.sh/ruff/rules/#flake8-tidy-imports-tid
+ignore = [
+ "D100", # instead trying clean code as much as possible.
+ "D101", # instead trying clean code as much as possible.
+ "D102", # instead trying clean code as much as possible.
+ "D103", # instead trying clean code as much as possible.
+ "D104", # "Missing docstring in public package" - often not needed
+ "D203", # "1 blank line required before class docstring" (VSCode) IDE automatically removes it!
+ "D213", # inner incompatibility /w D212
+  ]
+
+[tool.ruff.format]
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "PLR2004"]
+
+[tool.mypy]
+strict = true
+exclude = [
+    ".venv",
+    "venv",
+]
+implicit_reexport = true
+incremental = false
+namespace_packages = true
+explicit_package_bases = true
+plugins = [
+    "pydantic.mypy",
+]
+
+[build-system]
+requires = ["hatchling>=1.13"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+include = ["logtime"]
+
+[tool.hatch.build.targets.wheel]
+include = ["logtime"]
+
+[project.scripts]
+logtime = "logtime.logtime:main"
+log-time = "logtime.logtime:main"
+lt = "logtime.logtime:main"
+
+[project.urls]
+Repository = "https://github.com/LukasJerabek/logtime"
