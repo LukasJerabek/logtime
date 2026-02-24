@@ -67,7 +67,7 @@ For redmine report to work, you also need to set environment variables REDMINE_A
 `cd logtime`
 - Read through the above "How It Works" section and do the necessary preparation.
 - After preparation run logtime preferably with uv:
-`uv run logtime/logtime.py --days-back <number>`
+`uv run logtime --days-back <number>`
 --days-back parameter lets you compute files older than today.
 
 It is recommended to create some alias to run logtime for example in you .bashrc/.zshrc/...:
