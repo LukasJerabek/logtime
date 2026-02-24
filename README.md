@@ -73,7 +73,7 @@ For redmine report to work, you also need to set environment variables REDMINE_A
 It is recommended to create some alias to run logtime for example in you .bashrc/.zshrc/...:
 ```
 logtime() {
-  pushd <where you cloned there repo>/log_time/ || return
+  pushd <where you cloned there repo>/logtime/ || return
   uv run logtime --days-back "$@"
   popd
 }
