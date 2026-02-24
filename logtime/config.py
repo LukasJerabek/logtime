@@ -1,7 +1,7 @@
 import os
 
-api_key = os.environ.get("REDMINE_API_KEY")
-redmine_url = os.environ.get("REDMINE_URL")
+api_key = os.environ.get("LOGTIME_REDMINE_API_KEY")
+redmine_url = os.environ.get("LOGTIME_REDMINE_URL")
 root_folder = "~/logtime"
 defaults = {
     "sync": "77549",

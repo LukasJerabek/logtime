@@ -55,7 +55,7 @@ already parsed
 
 7. Finally you will be prompted with
 `Send on api? (y/n):`
-For redmine report to work, you also need to set environment variables REDMINE_API_KEY and REDMINE_URL first.
+For redmine report to work, you also need to set environment variables LOGTIME_REDMINE_API_KEY and LOGTIME_REDMINE_URL first.
 
 ---
 
