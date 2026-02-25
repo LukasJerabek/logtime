@@ -18,4 +18,8 @@ defaults = {
     "planning": "77491",
     "planning priprava": "77491",
     "kontrola prostredi": "77546",
+    "cop": "77422",
+    "CoP": "77422",
+    "CoP priprava": "80565",
+    "cop priprava": "80565",
 }
