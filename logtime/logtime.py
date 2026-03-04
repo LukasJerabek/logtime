@@ -12,12 +12,21 @@ from zoneinfo import ZoneInfo
 
 from redminelib import Redmine  # type: ignore[import-untyped]
 
-from logtime.config import (  # type: ignore[import-untyped]
-    api_key,
-    defaults,
-    redmine_url,
-    root_folder,
-)
+try:
+    from logtime.config import (  # type: ignore[import-untyped]
+        api_key,
+        defaults,
+        redmine_url,
+        root_folder,
+    )
+except ModuleNotFoundError:
+    from logtime.config_example import (
+        api_key,
+        defaults,
+        redmine_url,
+        root_folder,
+    )
+
 
 LOG_TZ = ZoneInfo("Europe/Prague")
 
