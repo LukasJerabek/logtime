@@ -25,7 +25,11 @@ Like this:
 ```
 Records with only task id still work, but redmine report won't have any text.
 
-4. Don't forget to check out your logtime/config.py. There you need to set your root_folder path of the daily failes. Also its possible to adjust defaults, that serves as a dictionary of texts, that you want to exchange for task id, so that you won't have to remember it.
+4. Make a copy of logtime/config_example.py and name it logtime/config.py.
+
+5. Don't forget to check out your logtime/config.py.
+- set your root_folder path of the daily files.
+- Optionally adjust defaults dict, that serves as a dictionary of texts, that you want to exchange for task id, so that you won't have to remember all the ids that you use regularly.
 
 5. After you run logtime it will:
    * Read timestamps and descriptions
