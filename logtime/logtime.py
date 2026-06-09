@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 from redminelib import Redmine  # type: ignore[import-untyped]
+from redminelib.exceptions import ValidationError  # type: ignore[import-untyped]
 
 
 def _load_config() -> dict[str, Any]:
@@ -327,12 +328,16 @@ def send_time_entries(grouped_tasks: Grouped, redmine_client: Redmine, date: dat
         if task_id and grouped_task.get("rounded_hours", 0) > 0:
             desc_text = ", ".join(sorted(grouped_task.get("desc", [])))
             hours = float(grouped_task["rounded_hours"])
-            redmine_client.time_entry.create(
-                issue_id=task_id,
-                spent_on=result_date,
-                hours=hours,
-                comments=desc_text,
-            )
+            try:
+                redmine_client.time_entry.create(
+                    issue_id=task_id,
+                    spent_on=result_date,
+                    hours=hours,
+                    comments=desc_text,
+                )
+            except ValidationError:
+                logger.error("Could not create entry for task %s", task_id)
+                raise
 
 
 def prepare_file(path: Path) -> None:
