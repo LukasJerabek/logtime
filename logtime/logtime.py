@@ -336,7 +336,7 @@ def send_time_entries(grouped_tasks: Grouped, redmine_client: Redmine, date: dat
                     comments=desc_text,
                 )
             except ValidationError:
-                logger.error("Could not create entry for task %s", task_id)
+                logger.error("Could not create entry for task %s", task_id)  # noqa: TRY400
                 raise
 
 
