@@ -265,7 +265,7 @@ def append_result(
         total_delta_free_rest = total_delta_free_mins % 60
 
         saldo_mins = int(abs(total_rounded_hours * 60 - EIGHT_HOURS_IN_MINS))
-        is_saldo_ge_zero = total_delta_work_mins >= EIGHT_HOURS_IN_MINS
+        is_saldo_ge_zero = abs(total_rounded_hours * 60) >= EIGHT_HOURS_IN_MINS
         saldo_hours = saldo_mins // 60
         saldo_rest = saldo_mins % 60
         sign = "" if is_saldo_ge_zero else "-"
